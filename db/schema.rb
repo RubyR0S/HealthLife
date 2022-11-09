@@ -10,13 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_09_204359) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_09_210514) do
   create_table "appoitments", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "doctor_id"
+    t.integer "user_id", null: false
+    t.integer "doctor_id", null: false
     t.datetime "appoiment_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["doctor_id"], name: "index_appoitments_on_doctor_id"
+    t.index ["user_id"], name: "index_appoitments_on_user_id"
   end
 
   create_table "doctors", force: :cascade do |t|
@@ -45,4 +47,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_09_204359) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "appoitments", "doctors"
+  add_foreign_key "appoitments", "users"
 end
