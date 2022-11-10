@@ -18,6 +18,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_09_210514) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["doctor_id"], name: "index_appoitments_on_doctor_id"
+    t.index ["user_id", "doctor_id", "appoiment_date"], name: "index_appoitments_on_user_id_and_doctor_id_and_appoiment_date", unique: true
     t.index ["user_id"], name: "index_appoitments_on_user_id"
   end
 

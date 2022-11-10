@@ -7,5 +7,7 @@ class CreateAppoitments < ActiveRecord::Migration[7.0]
 
       t.timestamps
     end
+
+    add_index :appoitments, [:user_id, :doctor_id, :appoiment_date], unique: true
   end
 end
