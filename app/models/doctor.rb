@@ -1,4 +1,5 @@
 class Doctor < ApplicationRecord
+  belongs_to :category
   has_many :appoitments
   has_many :users, through: :appoitments
   # Include default devise modules. Others available are:

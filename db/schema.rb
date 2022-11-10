@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_09_210514) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_10_095926) do
   create_table "appoitments", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "doctor_id", null: false
@@ -22,6 +22,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_09_210514) do
     t.index ["user_id"], name: "index_appoitments_on_user_id"
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.string "category_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "doctors", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -29,8 +35,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_09_210514) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string "doctor_name"
+    t.integer "category_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_doctors_on_category_id"
     t.index ["email"], name: "index_doctors_on_email", unique: true
     t.index ["reset_password_token"], name: "index_doctors_on_reset_password_token", unique: true
   end
@@ -50,4 +58,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_09_210514) do
 
   add_foreign_key "appoitments", "doctors"
   add_foreign_key "appoitments", "users"
+  add_foreign_key "doctors", "categories"
 end

@@ -33,6 +33,7 @@ class DeviseCreateDoctors < ActiveRecord::Migration[7.0]
       # t.datetime :locked_at
 
       t.string :doctor_name
+      t.belongs_to :category, null: false, foreign_key: true
 
       t.timestamps null: false
     end
