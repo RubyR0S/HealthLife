@@ -9,11 +9,18 @@
         <li><%= link_to 'Our Specialists', class: 'nav-link px-2 text-white' %></li>
       </ul>
 
-        <li><%= link_to 'Profile', class: 'nav-link px-2 text-white' %></li>
-
-        <li><%= link_to 'Log in as a Patient', class: 'nav-link px-2 text-white' %></li>
-        <li><%= link_to 'Log In as a Doctor', class: 'nav-link px-2 text-white' %></li>
-      </ul>
+      <div class="btn-group">
+        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Profile
+        </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">Log in as a Patient</a>
+            <a class="dropdown-item" href="#">Log In as a Doctor</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Separated link</a>
+          </div>
+        </div>
     </nav>
   </div>
 </header>
