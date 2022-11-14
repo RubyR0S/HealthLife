@@ -1,26 +1,25 @@
-<header class="p-3 bg-dark text-white">
+<header class="p-3 bg-primary text-white">
   <div class="container">
     <nav class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
       <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-        <li><%= link_to 'About Us', class: 'nav-link px-2 text-white' %></li>
+        <li><%= link_to 'About Us',root_path,  class: 'nav-link px-2 text-white' %></li>
       </ul>
 
       <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-        <li><%= link_to 'Our Specialists', class: 'nav-link px-2 text-white' %></li>
+        <li><%= link_to 'Our Specialists', categories_path, class: 'nav-link px-2 text-white' %></li>
       </ul>
 
-      <div class="btn-group">
-        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <div class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Profile
-        </button>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">Log in as a Patient</a>
-            <a class="dropdown-item" href="#">Log In as a Doctor</a>
-            <a class="dropdown-item" href="#">Something else here</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Separated link</a>
-          </div>
+        </a>
+        <div class="dropdown-menu">
+          <li class="dropdown-item"><%= link_to 'Log in as a Patient',new_user_registration_path, class: 'nav-link px-2 text-dark' %></li>
+          <li class="dropdown-item" href="#">Log In as a Doctor</li>
+          <div class="dropdown-divider"></div>
+          <li class="dropdown-item" href="#">Something else here</li>
         </div>
+      </div>
     </nav>
   </div>
 </header>
