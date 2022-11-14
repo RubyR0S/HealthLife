@@ -1,0 +1,9 @@
+<h1>List of Doctors</h1>
+<br>
+<% @doctors.each do |doctor| %>
+  <h2><%= doctor.doctor_name %></h2>
+
+  <p>
+    <%= link_to 'Make an appoitment',new_appoitment_path , class: 'btn btn-primary' %> 
+  </p>
+<% end %>
