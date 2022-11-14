@@ -1,0 +1,9 @@
+<h1>Choose a category of doctor</h1>
+<br>
+
+<% @categories.each do |category| %>
+  <h2><%= category.category_name %></h2>
+  <%= category.inspect %>
+
+  <%= link_to 'Choose a doctor',doctors_path , class: 'btn btn-primary' %> 
+<% end %>
